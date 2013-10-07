@@ -2,6 +2,7 @@ package com.mazetar.citymaker;
 
 import java.lang.ref.Reference;
 
+import com.mazetar.citymaker.builder.SchematicHandler;
 import com.mazetar.citymaker.core.proxy.CommonProxy;
 import com.mazetar.citymaker.lib.ModRef;
 
@@ -32,7 +33,7 @@ public class CityMaker {
 	    @EventHandler
 	    public void load(FMLInitializationEvent event){
 	        proxy.init(event);
-	        
+	        SchematicHandler.ScanSchematicsForSize();
 	    }
 	    
 	    

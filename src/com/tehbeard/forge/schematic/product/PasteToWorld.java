@@ -37,6 +37,14 @@ public class PasteToWorld extends ActOnWorld {
             
             if (storageArray == null) {
                 ExtendedBlockStorage[] storageArrays = chunk.getBlockStorageArray();
+                int temp = (worldVector.getY() >> 4) - 1;
+                if (storageArrays[(worldVector.getY() >> 4) - 1] == null)
+                {
+                	System.out.println("ERROR ### MODIFIED SCHEMATIC LIB #### - storageArrays is null! at loc [" + temp + "]");
+                	return null;
+                }
+                
+                
                 storageArrays[worldVector.getY() >> 4] = new ExtendedBlockStorage(storageArrays[(worldVector.getY() >> 4) - 1].getYLocation() + 16 ,!world.provider.hasNoSky);
                 storageArray = chunk.getBlockStorageArray()[worldVector.getY() >> 4];
             }

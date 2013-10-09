@@ -2,20 +2,22 @@ package com.mazetar.citymaker.item;
 
 import java.util.List;
 
-import com.mazetar.citymaker.builder.SchematicHandler;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+
+import com.mazetar.citymaker.CityMaker;
+import com.mazetar.citymaker.builder.SchematicHandler;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBuildingSelector extends Item {
 
-	private String defaultBuilding = "build";
+	private String defaultBuilding = "v";
 	public ItemBuildingSelector(int id) {
 		super(id);
 		this.setCreativeTab(CreativeTabs.tabRedstone);
@@ -27,6 +29,7 @@ public class ItemBuildingSelector extends Item {
 	        
 	        itemStack.stackTagCompound.setString("builder", player.username);
 	        itemStack.stackTagCompound.setString("building", defaultBuilding);
+	        itemStack.stackTagCompound.setString("PastePos", "NW");
 	        
 	    }
 	    
@@ -36,12 +39,12 @@ public class ItemBuildingSelector extends Item {
 	            float hitZ) {
 	        
 	        if (player.isSneaking()) {
-	        	SchematicHandler.PasteAtNE("build2", world, x, y, z);
-	            // Open Select Building GUI here.
-	            return false;
+	        	player.openGui(CityMaker.instance, 0, world, x, y, z);
+	        	
+	        	return false;
 	        }
 
-        	SchematicHandler.PasteAtNW("build2", world, x, y, z);
+        	SchematicHandler.PasteAtNW(stack.stackTagCompound.getString("building"), world, x, y, z);
 	        // Open confirm building placement dialog here ..
 	        
 	        

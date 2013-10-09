@@ -14,6 +14,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = ModRef.ID, name = ModRef.NAME, version = ModRef.VERSION)
 @NetworkMod(channels = { ModRef.CHANNEL_NAME }, clientSideRequired = true, serverSideRequired = false) //, packetHandler = PacketHandler.class)
@@ -34,6 +35,7 @@ public class CityMaker {
 	    public void load(FMLInitializationEvent event){
 	        proxy.init(event);
 	        SchematicHandler.ScanSchematicsForSize();
+	        GameRegistry.registerWorldGenerator(new WorldGenSchematica());
 	    }
 	    
 	    

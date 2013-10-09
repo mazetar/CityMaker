@@ -38,14 +38,13 @@ import net.minecraft.tileentity.TileEntity;
 public class SchematicFile {
 
     //schematic size
-    private short width = 0;
+	private short width = 0;
     private short height = 0;
     private short length = 0;
 
     //block data
     private int[] blocks;
     private byte[] blockData;
-
 
 
     //Complex NBT objects

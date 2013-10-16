@@ -16,7 +16,15 @@ public class WorldGenSchematica implements IWorldGenerator {
 		if (world.provider.dimensionId == 0)
 		{
 			
-			
+			if (chunkX == 1)
+				if (chunkZ == 1){
+					int x = chunkX * 16 + 10;
+					int z = chunkZ * 16 + 10;
+					int y = world.getTopSolidOrLiquidBlock(x, z);
+					CityGenerator.generateCity(world, x, y, z);
+					System.out.println("=======>>  CITY GEN AT (" + x + "," + y + "," + z + ") <<========");
+				}
+				
 			
 		}
 		

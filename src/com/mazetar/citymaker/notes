@@ -1,0 +1,38 @@
+
+1. Start with a map covered in grass.
+2. Draw either a horizontal or vertical street through the whole map and
+line it with trees.  This is the main street.
+3. In the middle of the map, build a Town Square next to this main street.
+    a) At this stage my town square has a randomly shaped 3-roomed town
+hall.  But I plan to add some more things, maybe a little lake like I
+had in my original project.
+
+4. Divide the unused areas around the main street and the town square
+into rectangular blocks.
+5. For each of these blocks do the following:
+6. Like before, pick a random point and draw streets in a cross from
+this point.  And do the same for each of the new rectangles created by
+this  (recursively) until you've reached a minimum size (or close to it).
+8. Subdivide each of these street blocks into sections for specific
+houses as before.
+9. Ideally all these new created subdivisions should be stored in some
+list.  So now pick a random one from this list and place some
+non-standard feature that you always want to be present (for example a
+shop).  You can put in several of these.
+10. Now put in houses into all the remaining rectangles.
+
+
+1. Start with a map covered in grass.
+2. Pick a random point close to the centre of the map.
+3. Draw streets in a cross from this point.  One street going across the
+whole map horizontally through this point, and another street going
+vertically through this point.  (ie this point becomes a street
+intersection)
+4. Repeat steps 2 to 3 for each of the four blocks that were created by
+the street subdivision.  Keep doing this recursively till a minimum (or
+close to minimum) size has been reached.
+5. In each of these small subdivisions, use the same algorithm, but
+instead of placing streets place houses.
+
+
+
